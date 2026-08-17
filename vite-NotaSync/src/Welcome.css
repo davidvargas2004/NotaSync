@@ -1,0 +1,272 @@
+/* ==========================================================
+   NotaSync — Welcome Amigos BetaConnect
+   Paleta "URBAN NOCTURNE":
+   - #141414 (Dark / Tinta)
+   - #444444 (Gris carbón / Bordes / Superficies secundarias)
+   - #D6D6D6 (Texto claro / Blanco papel)
+   - #E2E800 (Acento eléctrico / Lima)
+   - #979797 (Gris medio / Fog / Texto secundario)
+   ========================================================== */
+
+.welcome {
+  --ink-900: #141414;
+  --ink-800: #1c1c1c;
+  --ink-700: #444444;
+  --paper: #D6D6D6;
+  --fog: #979797;
+  --white: #D6D6D6;
+  --lime: #E2E800;
+  --cal-blue: #8000ff;
+
+  --font-display: 'Fraunces', 'Georgia', serif;
+  --font-body: 'Space Grotesk', 'Segoe UI', sans-serif;
+
+  position: relative;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: 2rem;
+  padding: 4rem clamp(1.5rem, 6vw, 6rem);
+  background: var(--ink-900);
+  color: var(--white);
+  font-family: var(--font-body);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Fondo: un único degradado estático, sin capas ni imágenes pesadas */
+.welcome__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(226, 232, 0, 0.08), transparent 55%),
+    radial-gradient(circle at 8% 85%, rgba(68, 68, 68, 0.45), transparent 50%);
+  pointer-events: none;
+}
+
+.welcome__content {
+  position: relative;
+  z-index: 1;
+  max-width: 34rem;
+}
+
+.welcome__eyebrow {
+  margin: 0 0 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--lime);
+}
+
+.welcome__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  color: var(--white);
+}
+
+.welcome__pitch {
+  margin: 1.1rem 0 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-style: italic;
+  font-size: clamp(1.25rem, 2.4vw, 1.7rem);
+  color: var(--lime);
+}
+
+.welcome__desc {
+  margin: 1.25rem 0 2.5rem;
+  max-width: 30rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--fog);
+}
+
+.welcome__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  border: none;
+  border-radius: 999px;
+  padding: 0.95rem 1.9rem;
+  background: var(--lime);
+  color: var(--ink-900);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  box-shadow: 0 0 0 0 rgba(226, 232, 0, 0);
+}
+
+.welcome__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -8px rgba(226, 232, 0, 0.55);
+}
+
+.welcome__cta:focus-visible {
+  outline: 3px solid var(--white);
+  outline-offset: 3px;
+}
+
+.welcome__cta-arrow {
+  transition: transform 0.18s ease;
+}
+
+.welcome__cta:hover .welcome__cta-arrow {
+  transform: translateX(3px);
+}
+
+/* ---------- Elemento firma: nota sincronizándose con calendario ---------- */
+
+.welcome__stamp {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  justify-self: center;
+  width: min(100%, 22rem);
+}
+
+.stamp__note {
+  width: 6.5rem;
+  height: 8rem;
+  background: var(--paper);
+  border-radius: 6px;
+  padding: 1rem 0.9rem;
+  transform: rotate(-7deg);
+  box-shadow: 0 18px 30px -14px rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  justify-content: flex-start;
+}
+
+.stamp__note-line {
+  display: block;
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(20, 20, 20, 0.45);
+}
+
+.stamp__note-line--short {
+  width: 60%;
+}
+
+.stamp__link {
+  width: 100%;
+  height: 3.5rem;
+  overflow: visible;
+}
+
+.stamp__link-path {
+  stroke: var(--fog);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 6;
+  opacity: 0.6;
+}
+
+.stamp__link-dot {
+  fill: var(--lime);
+  offset-path: path('M8,10 C60,10 60,50 152,50');
+  animation: travel 2.8s ease-in-out infinite;
+}
+
+.stamp__calendar {
+  width: 6.5rem;
+  height: 6.5rem;
+  background: #1c1c1c;
+  border: 1px solid var(--ink-700);
+  border-radius: 8px;
+  padding: 0.6rem;
+  transform: rotate(5deg);
+  box-shadow: 0 18px 30px -14px rgba(0, 0, 0, 0.75);
+}
+
+.stamp__calendar-head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.stamp__calendar-head span {
+  width: 4px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--lime);
+}
+
+.stamp__calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+}
+
+.stamp__calendar-cell {
+  aspect-ratio: 1;
+  border-radius: 2px;
+  background: var(--ink-700);
+}
+
+.stamp__calendar-cell.is-active {
+  background: var(--lime);
+}
+
+@keyframes travel {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+
+/* Respeta la preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .stamp__link-dot {
+    animation: none;
+    opacity: 1;
+  }
+  .welcome__cta,
+  .welcome__cta-arrow {
+    transition: none;
+  }
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 860px) {
+  .welcome {
+    grid-template-columns: 1fr;
+    padding: 3rem 1.5rem;
+    text-align: center;
+  }
+
+  .welcome__content {
+    max-width: none;
+  }
+
+  .welcome__desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .welcome__stamp {
+    margin-top: 1rem;
+  }
+}
