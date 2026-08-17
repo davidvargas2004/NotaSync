@@ -1,0 +1,435 @@
+/* ==========================================================
+   NotaSync — Google Calendar Presentation Page
+   Paleta "URBAN NOCTURNE":
+   - #141414 (Dark / Tinta)
+   - #444444 (Gris carbón / Bordes / Superficies secundarias)
+   - #D6D6D6 (Texto claro / Blanco papel)
+   - #E2E800 (Acento eléctrico / Lima)
+   - #979797 (Gris medio / Fog / Texto secundario)
+   ========================================================== */
+
+
+   
+.calendar-page {
+  position: relative;
+  min-height: calc(100dvh - var(--nav-height));
+  padding: 3.5rem clamp(1.25rem, 5vw, 4rem);
+  background: var(--ink-900);
+  color: var(--white);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Fondo dinámico sutil */
+.calendar-page__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 75% 25%, rgba(226, 232, 0, 0.08), transparent 50%),
+    radial-gradient(circle at 20% 75%, rgba(68, 68, 68, 0.35), transparent 55%);
+  pointer-events: none;
+}
+
+.calendar-page__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 84rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: 3.5rem;
+}
+
+/* Header & Copy */
+.calendar-page__content {
+  max-width: 36rem;
+}
+
+.calendar-page__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: 1px solid var(--ink-700);
+  color: var(--fog);
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.calendar-page__back:hover {
+  color: var(--lime);
+  border-color: var(--lime);
+  background: rgba(226, 232, 0, 0.06);
+}
+
+.calendar-page__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--lime);
+  margin-bottom: 0.75rem;
+}
+
+.calendar-page__title {
+  margin: 0 0 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  line-height: 1.05;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--white);
+}
+
+.calendar-page__pitch {
+  margin: 0 0 1.25rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+  color: var(--lime);
+}
+
+.calendar-page__desc {
+  margin: 0 0 2rem;
+  font-size: 1.025rem;
+  line-height: 1.65;
+  color: var(--fog);
+}
+
+/* Feature grid */
+.calendar-page__features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 2.25rem;
+}
+
+.calendar-feature-card {
+  background: var(--ink-800);
+  border: 1px solid var(--ink-700);
+  border-radius: 10px;
+  padding: 1rem 1.15rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.calendar-feature-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--lime);
+}
+
+.calendar-feature-card__title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--white);
+  margin: 0 0 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.calendar-feature-card__title::before {
+  content: '●';
+  color: var(--lime);
+  font-size: 0.7rem;
+}
+
+.calendar-feature-card__text {
+  font-size: 0.85rem;
+  color: var(--fog);
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* CTA */
+.calendar-page__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.calendar-page__cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  border: none;
+  border-radius: 999px;
+  padding: 0.9rem 1.85rem;
+  background: var(--lime);
+  color: var(--ink-900);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.calendar-page__cta-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px -6px rgba(226, 232, 0, 0.45);
+}
+
+/* ==========================================================
+   Escenario Visual & Animaciones del Logo
+   ========================================================== */
+
+.calendar-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 24rem;
+  width: 100%;
+}
+
+/* Anillos orbitales animados */
+.calendar-visual__orbit {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed var(--ink-700);
+  pointer-events: none;
+}
+
+.calendar-visual__orbit--outer {
+  width: 22rem;
+  height: 22rem;
+  animation: rotateClockwise 28s linear infinite;
+}
+
+.calendar-visual__orbit--inner {
+  width: 16rem;
+  height: 16rem;
+  border: 1px solid rgba(226, 232, 0, 0.22);
+  animation: rotateCounter 20s linear infinite;
+}
+
+/* Partícula orbitante */
+.calendar-visual__orbit-dot {
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background: var(--lime);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--lime);
+}
+
+.calendar-visual__orbit-dot--secondary {
+  top: auto;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  background: var(--white);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(214, 214, 214, 0.8);
+}
+
+/* Contenedor central del Logo con Efecto Flotante */
+.calendar-visual__center {
+  position: relative;
+  z-index: 2;
+  width: 9.5rem;
+  height: 9.5rem;
+  background: var(--ink-800);
+  border: 2px solid var(--ink-700);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 20px 40px -10px rgba(0, 0, 0, 0.8),
+    0 0 35px -5px rgba(226, 232, 0, 0.12);
+  animation: floatLogo 4s ease-in-out infinite;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.calendar-visual__center:hover {
+  border-color: var(--lime);
+  box-shadow:
+    0 25px 50px -10px rgba(0, 0, 0, 0.9),
+    0 0 45px 0px rgba(226, 232, 0, 0.25);
+}
+
+.calendar-visual__img {
+  width: 5.8rem;
+  height: 5.8rem;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+}
+
+/* Badges flotantes alrededor del logo */
+.calendar-visual__badge {
+  position: absolute;
+  z-index: 3;
+  background: rgba(28, 28, 28, 0.9);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--ink-700);
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.6);
+  white-space: nowrap;
+}
+
+.calendar-visual__badge--top {
+  top: 10%;
+  left: 5%;
+  animation: floatBadge1 4.5s ease-in-out infinite;
+}
+
+.calendar-visual__badge--bottom {
+  bottom: 12%;
+  right: 5%;
+  animation: floatBadge2 5s ease-in-out infinite;
+}
+
+.calendar-visual__badge-pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--lime);
+  display: inline-block;
+  box-shadow: 0 0 6px var(--lime);
+  animation: pulseDot 1.8s ease-in-out infinite;
+}
+
+/* ==========================================================
+   Keyframes Animaciones
+   ========================================================== */
+
+@keyframes floatLogo {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+@keyframes floatBadge1 {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes floatBadge2 {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+@keyframes rotateClockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateCounter {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes pulseDot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0.6;
+  }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .calendar-visual__orbit--outer,
+  .calendar-visual__orbit--inner,
+  .calendar-visual__center,
+  .calendar-visual__badge--top,
+  .calendar-visual__badge--bottom,
+  .calendar-visual__badge-pulse {
+    animation: none;
+  }
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 860px) {
+  .calendar-page__inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  .calendar-page__content {
+    max-width: none;
+  }
+
+  .calendar-page__back {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .calendar-page__eyebrow {
+    justify-content: center;
+  }
+
+  .calendar-page__features {
+    grid-template-columns: 1fr;
+    max-width: 24rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .calendar-page__actions {
+    justify-content: center;
+  }
+
+  .calendar-visual {
+    margin-top: 1rem;
+  }
+
+  .calendar-visual__orbit--outer {
+    width: 18rem;
+    height: 18rem;
+  }
+
+  .calendar-visual__orbit--inner {
+    width: 13rem;
+    height: 13rem;
+  }
+}

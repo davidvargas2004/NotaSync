@@ -1,113 +1,114 @@
 /* ==========================================================
-   NotaSync — Welcome Amigos BetaConnect
-   Paleta "URBAN NOCTURNE":
-   - #141414 (Dark / Tinta)
-   - #444444 (Gris carbón / Bordes / Superficies secundarias)
-   - #D6D6D6 (Texto claro / Blanco papel)
-   - #E2E800 (Acento eléctrico / Lima)
-   - #979797 (Gris medio / Fog / Texto secundario)
+   NotaSync — Welcome (Hero)
+   Paleta "URBAN NOCTURNE"
    ========================================================== */
 
 .welcome {
-  --ink-900: #141414;
-  --ink-800: #1c1c1c;
-  --ink-700: #444444;
-  --paper: #D6D6D6;
-  --fog: #979797;
-  --white: #D6D6D6;
-  --lime: #E2E800;
-  --cal-blue: #8000ff;
-
-  --font-display: 'Fraunces', 'Georgia', serif;
-  --font-body: 'Space Grotesk', 'Segoe UI', sans-serif;
-
   position: relative;
-  min-height: 100dvh;
+  min-height: calc(100dvh - var(--nav-height));
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
   align-items: center;
-  gap: 2rem;
-  padding: 4rem clamp(1.5rem, 6vw, 6rem);
+  gap: 3rem;
+  padding: 4rem clamp(1.25rem, 5vw, 4rem);
   background: var(--ink-900);
   color: var(--white);
-  font-family: var(--font-body);
   overflow: hidden;
   box-sizing: border-box;
 }
 
-/* Fondo: un único degradado estático, sin capas ni imágenes pesadas */
+/* Fondo sutil */
 .welcome__bg {
   position: absolute;
   inset: 0;
   z-index: 0;
   background:
-    radial-gradient(circle at 82% 18%, rgba(226, 232, 0, 0.08), transparent 55%),
-    radial-gradient(circle at 8% 85%, rgba(68, 68, 68, 0.45), transparent 50%);
+    radial-gradient(circle at 80% 20%, rgba(226, 232, 0, 0.07), transparent 50%),
+    radial-gradient(circle at 10% 85%, rgba(68, 68, 68, 0.35), transparent 50%);
   pointer-events: none;
 }
 
 .welcome__content {
   position: relative;
   z-index: 1;
-  max-width: 34rem;
+  max-width: 36rem;
 }
 
 .welcome__eyebrow {
-  margin: 0 0 1rem;
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
+  margin: 0 0 1.25rem;
+  font-size: 0.825rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--lime);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.welcome__eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--lime);
 }
 
 .welcome__title {
   margin: 0;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-size: clamp(3.2rem, 8vw, 5.5rem);
   line-height: 0.95;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   color: var(--white);
 }
 
 .welcome__pitch {
-  margin: 1.1rem 0 0;
+  margin: 1.25rem 0 0;
   font-family: var(--font-display);
   font-weight: 500;
   font-style: italic;
-  font-size: clamp(1.25rem, 2.4vw, 1.7rem);
+  font-size: clamp(1.3rem, 2.5vw, 1.85rem);
+  line-height: 1.25;
   color: var(--lime);
 }
 
 .welcome__desc {
-  margin: 1.25rem 0 2.5rem;
-  max-width: 30rem;
+  margin: 1.35rem 0 2.5rem;
+  max-width: 32rem;
   font-size: 1.05rem;
-  line-height: 1.6;
+  line-height: 1.65;
   color: var(--fog);
+}
+
+.welcome__cta-group {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
 }
 
 .welcome__cta {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.65rem;
   border: none;
   border-radius: 999px;
-  padding: 0.95rem 1.9rem;
+  padding: 1rem 2rem;
   background: var(--lime);
   color: var(--ink-900);
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 1.05rem;
   cursor: pointer;
+  text-decoration: none;
   transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
   box-shadow: 0 0 0 0 rgba(226, 232, 0, 0);
 }
 
 .welcome__cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px -8px rgba(226, 232, 0, 0.55);
+  box-shadow: 0 10px 25px -8px rgba(226, 232, 0, 0.5);
 }
 
 .welcome__cta:focus-visible {
@@ -120,10 +121,25 @@
 }
 
 .welcome__cta:hover .welcome__cta-arrow {
-  transform: translateX(3px);
+  transform: translateX(4px);
 }
 
-/* ---------- Elemento firma: nota sincronizándose con calendario ---------- */
+.welcome__cta-secondary {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.welcome__cta-secondary:hover {
+  color: var(--lime);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ---------- Elemento firma: Sello de sincronización ---------- */
 
 .welcome__stamp {
   position: relative;
@@ -132,26 +148,31 @@
   grid-template-columns: auto 1fr auto;
   align-items: center;
   justify-self: center;
-  width: min(100%, 22rem);
+  width: min(100%, 23rem);
 }
 
 .stamp__note {
-  width: 6.5rem;
-  height: 8rem;
+  width: 7rem;
+  height: 8.5rem;
   background: var(--paper);
-  border-radius: 6px;
-  padding: 1rem 0.9rem;
-  transform: rotate(-7deg);
-  box-shadow: 0 18px 30px -14px rgba(0, 0, 0, 0.75);
+  border-radius: 8px;
+  padding: 1.1rem 1rem;
+  transform: rotate(-6deg);
+  box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.75);
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
+  gap: 0.6rem;
   justify-content: flex-start;
+  transition: transform 0.3s ease;
+}
+
+.stamp__note:hover {
+  transform: rotate(-3deg) translateY(-4px);
 }
 
 .stamp__note-line {
   display: block;
-  height: 3px;
+  height: 4px;
   border-radius: 2px;
   background: rgba(20, 20, 20, 0.45);
 }
@@ -160,9 +181,17 @@
   width: 60%;
 }
 
+.stamp__note-tag {
+  width: 35%;
+  height: 6px;
+  border-radius: 3px;
+  background: #2a2a2a;
+  margin-bottom: 0.2rem;
+}
+
 .stamp__link {
   width: 100%;
-  height: 3.5rem;
+  height: 4rem;
   overflow: visible;
 }
 
@@ -170,35 +199,42 @@
   stroke: var(--fog);
   stroke-width: 1.5;
   stroke-dasharray: 4 6;
-  opacity: 0.6;
+  opacity: 0.55;
 }
 
 .stamp__link-dot {
   fill: var(--lime);
-  offset-path: path('M8,10 C60,10 60,50 152,50');
+  offset-path: path('M8,12 C60,12 60,52 152,52');
   animation: travel 2.8s ease-in-out infinite;
 }
 
 .stamp__calendar {
-  width: 6.5rem;
-  height: 6.5rem;
-  background: #1c1c1c;
+  width: 7rem;
+  height: 7rem;
+  background: var(--ink-800);
   border: 1px solid var(--ink-700);
-  border-radius: 8px;
-  padding: 0.6rem;
-  transform: rotate(5deg);
-  box-shadow: 0 18px 30px -14px rgba(0, 0, 0, 0.75);
+  border-radius: 10px;
+  padding: 0.75rem;
+  transform: rotate(6deg);
+  box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.75);
+  transition: transform 0.3s ease;
+}
+
+.stamp__calendar:hover {
+  transform: rotate(3deg) translateY(-4px);
 }
 
 .stamp__calendar-head {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--ink-700);
 }
 
 .stamp__calendar-head span {
-  width: 4px;
-  height: 8px;
+  width: 5px;
+  height: 9px;
   border-radius: 2px;
   background: var(--lime);
 }
@@ -206,12 +242,12 @@
 .stamp__calendar-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 4px;
+  gap: 5px;
 }
 
 .stamp__calendar-cell {
   aspect-ratio: 1;
-  border-radius: 2px;
+  border-radius: 3px;
   background: var(--ink-700);
 }
 
@@ -243,7 +279,9 @@
     opacity: 1;
   }
   .welcome__cta,
-  .welcome__cta-arrow {
+  .welcome__cta-arrow,
+  .stamp__note,
+  .stamp__calendar {
     transition: none;
   }
 }
@@ -253,7 +291,7 @@
 @media (max-width: 860px) {
   .welcome {
     grid-template-columns: 1fr;
-    padding: 3rem 1.5rem;
+    padding: 3.5rem 1.5rem;
     text-align: center;
   }
 
@@ -261,12 +299,20 @@
     max-width: none;
   }
 
+  .welcome__eyebrow {
+    justify-content: center;
+  }
+
   .welcome__desc {
     margin-left: auto;
     margin-right: auto;
   }
 
+  .welcome__cta-group {
+    justify-content: center;
+  }
+
   .welcome__stamp {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
   }
 }

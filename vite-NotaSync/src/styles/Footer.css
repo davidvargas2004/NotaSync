@@ -1,0 +1,168 @@
+/* ==========================================================
+   NotaSync — Footer
+   Paleta "URBAN NOCTURNE"
+   ========================================================== */
+
+.footer {
+  background: var(--ink-800);
+  border-top: 1px solid var(--ink-700);
+  padding: 4.5rem clamp(1.25rem, 5vw, 3rem) 2.5rem;
+}
+
+.footer__top {
+  max-width: 84rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 2fr);
+  gap: 3.5rem;
+}
+
+.footer__brand-name {
+  margin: 0 0 0.6rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.footer__brand-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--lime);
+  display: inline-block;
+}
+
+.footer__brand-tagline {
+  margin: 0 0 1.75rem;
+  max-width: 24rem;
+  color: var(--fog);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.footer__social {
+  display: flex;
+  gap: 0.85rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer__social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: var(--ink-700);
+  color: var(--fog);
+  transition: color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+  border: 1px solid transparent;
+}
+
+.footer__social a:hover,
+.footer__social a:focus-visible {
+  color: var(--ink-900);
+  background: var(--lime);
+  border-color: var(--lime);
+  transform: translateY(-3px);
+}
+
+.footer__columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.5rem;
+}
+
+.footer__column-title {
+  margin: 0 0 1.2rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--lime);
+}
+
+.footer__column ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.footer__column a {
+  color: var(--fog);
+  text-decoration: none;
+  font-size: 0.92rem;
+  transition: color 0.15s ease, transform 0.15s ease;
+  display: inline-block;
+}
+
+.footer__column a:hover,
+.footer__column a:focus-visible {
+  color: var(--white);
+  transform: translateX(2px);
+}
+
+.footer__bottom {
+  max-width: 84rem;
+  margin: 3.5rem auto 0;
+  padding-top: 2rem;
+  border-top: 1px solid var(--ink-700);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  color: var(--fog);
+  font-size: 0.875rem;
+}
+
+.footer__bottom-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer__bottom-links a {
+  color: var(--fog);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.15s ease;
+}
+
+.footer__bottom-links a:hover {
+  color: var(--lime);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 768px) {
+  .footer__top {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .footer__columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer__columns {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}

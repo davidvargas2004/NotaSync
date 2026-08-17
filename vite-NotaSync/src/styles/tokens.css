@@ -1,0 +1,42 @@
+/* ==========================================================
+   NotaSync — Tokens de diseño globales
+   Paleta "URBAN NOCTURNE":
+   - #141414 (Dark / Tinta)
+   - #444444 (Gris carbón / Bordes / Superficies secundarias)
+   - #D6D6D6 (Texto claro / Blanco papel)
+   - #E2E800 (Acento eléctrico / Lima)
+   - #979797 (Gris medio / Fog / Texto secundario)
+   ========================================================== */
+
+:root {
+  --ink-900: #141414;
+  --ink-800: #1c1c1c;
+  --ink-700: #444444;
+  --paper: #D6D6D6;
+  --fog: #979797;
+  --white: #D6D6D6;
+  --lime: #E2E800;
+  --cal-blue: #E2E800;
+
+  --font-display: 'Fraunces', 'Georgia', serif;
+  --font-body: 'Space Grotesk', 'Segoe UI', sans-serif;
+
+  --nav-height: 4.5rem;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--ink-900);
+  color: var(--white);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
