@@ -1,0 +1,368 @@
+/* ==========================================================
+   NotaSync — Estilos de la Vista "Empezar a Crear" (CreateView)
+   Fuente de verdad visual: tokens.css
+   Paleta: Urban Nocturne
+   ========================================================== */
+
+.create-view {
+  min-height: calc(100vh - var(--nav-height));
+  padding-top: calc(var(--nav-height) + 2rem);
+  padding-bottom: 5rem;
+  background-color: var(--ink-900);
+  color: var(--white);
+  font-family: var(--font-body);
+}
+
+.create-view__container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 5vw, 2.5rem);
+}
+
+/* ----------------------------------------------------------
+   Encabezado de la Vista
+   ---------------------------------------------------------- */
+.create-view__header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid var(--ink-700);
+  padding-bottom: 2.5rem;
+}
+
+.create-view__nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.create-view__back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: 1px solid var(--ink-700);
+  color: var(--paper);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.create-view__back-btn:hover {
+  background: var(--ink-800);
+  border-color: var(--paper);
+  color: var(--lime);
+  transform: translateX(-2px);
+}
+
+.create-view__badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--lime);
+  background: rgba(226, 232, 0, 0.08);
+  border: 1px solid rgba(226, 232, 0, 0.2);
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+}
+
+.create-view__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--lime);
+}
+
+.create-view__titles {
+  max-width: 760px;
+}
+
+.create-view__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.75rem 0;
+  color: var(--white);
+}
+
+.create-view__subtitle {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--fog);
+  margin: 0;
+}
+
+/* ----------------------------------------------------------
+   Métricas y Contadores
+   ---------------------------------------------------------- */
+.create-view__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.create-view__stat-card {
+  background: var(--ink-800);
+  border: 1px solid var(--ink-700);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  transition: border-color 0.2s ease;
+}
+
+.create-view__stat-card:hover {
+  border-color: var(--paper);
+}
+
+.create-view__stat-label {
+  font-size: 0.8rem;
+  color: var(--fog);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.create-view__stat-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  font-family: var(--font-display);
+  color: var(--paper);
+}
+
+.create-view__stat-value--lime {
+  color: var(--lime);
+}
+
+.create-view__stat-value--fog {
+  color: var(--fog);
+}
+
+/* ----------------------------------------------------------
+   Grid de Tarjetas
+   ---------------------------------------------------------- */
+.create-view__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.75rem;
+}
+
+@media (max-width: 640px) {
+  .create-view__grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+/* ----------------------------------------------------------
+   Tarjeta de Evento (event-card)
+   ---------------------------------------------------------- */
+.event-card {
+  background: var(--ink-800);
+  border: 1px solid var(--ink-700);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+  position: relative;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--paper);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+}
+
+.event-card--synced {
+  border-left: 3px solid var(--lime);
+}
+
+.event-card--pending {
+  border-left: 3px solid var(--fog);
+}
+
+/* Parte superior de la tarjeta */
+.event-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.event-card__category {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  background: var(--ink-900);
+  border: 1px solid var(--ink-700);
+  color: var(--paper);
+}
+
+.event-card[data-category="trabajo"] .event-card__category {
+  border-color: rgba(226, 232, 0, 0.4);
+  color: var(--lime);
+}
+
+.event-card[data-category="salud"] .event-card__category {
+  border-color: rgba(214, 214, 214, 0.4);
+  color: var(--paper);
+}
+
+.event-card[data-category="social"] .event-card__category {
+  border-color: rgba(226, 232, 0, 0.3);
+  color: var(--lime);
+}
+
+.event-card[data-category="personal"] .event-card__category {
+  border-color: rgba(151, 151, 151, 0.4);
+  color: var(--fog);
+}
+
+.event-card__date {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--fog);
+  text-transform: capitalize;
+}
+
+/* Cuerpo de la tarjeta */
+.event-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.event-card__title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0;
+  color: var(--white);
+}
+
+.event-card__description {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--fog);
+  margin: 0;
+}
+
+/* Metadatos (Hora y Ubicación) */
+.event-card__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid rgba(68, 68, 68, 0.5);
+  border-bottom: 1px solid rgba(68, 68, 68, 0.5);
+}
+
+.event-card__meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.825rem;
+  color: var(--paper);
+}
+
+.event-card__meta-item svg {
+  color: var(--fog);
+  flex-shrink: 0;
+}
+
+/* Pie de tarjeta */
+.event-card__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+/* Badges de estado */
+.event-card__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  width: fit-content;
+}
+
+.event-card__badge--synced {
+  background: rgba(226, 232, 0, 0.1);
+  color: var(--lime);
+  border: 1px solid rgba(226, 232, 0, 0.3);
+}
+
+.event-card__badge--pending {
+  background: rgba(151, 151, 151, 0.1);
+  color: var(--fog);
+  border: 1px solid rgba(151, 151, 151, 0.25);
+}
+
+.event-card__badge-pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--fog);
+  opacity: 0.8;
+}
+
+/* Botón de Acción */
+.event-card__action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--ink-900);
+  border: 1px solid var(--ink-700);
+  color: var(--paper);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.65rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.event-card__action-btn:hover:not(:disabled) {
+  background: var(--lime);
+  color: var(--ink-900);
+  border-color: var(--lime);
+  transform: translateY(-1px);
+}
+
+.event-card__action-btn:disabled,
+.event-card__action-btn--disabled {
+  background: rgba(68, 68, 68, 0.2);
+  border-color: rgba(68, 68, 68, 0.4);
+  color: var(--lime);
+  cursor: default;
+  opacity: 0.85;
+}

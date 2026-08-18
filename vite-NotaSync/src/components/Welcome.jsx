@@ -1,6 +1,10 @@
 import '../styles/Welcome.css'
 
-export default function Welcome({ onStart }) {
+/**
+ * Componente Welcome — Vista de inicio de NotaSync
+ * Utiliza arrow functions y destructuring en props.
+ */
+const Welcome = ({ onStart }) => {
   return (
     <main id="inicio" className="welcome">
       <div className="welcome__bg" aria-hidden="true" />
@@ -25,7 +29,7 @@ export default function Welcome({ onStart }) {
             type="button"
             className="welcome__cta"
             onClick={onStart}
-            aria-label="Empezar a crear notas"
+            aria-label="Empezar a crear eventos"
           >
             <span>Empezar a crear</span>
             <span className="welcome__cta-arrow" aria-hidden="true">→</span>
@@ -78,3 +82,5 @@ export default function Welcome({ onStart }) {
     </main>
   )
 }
+
+export default Welcome
