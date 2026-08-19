@@ -1,10 +1,11 @@
+import { AlertTriangleIcon } from './icons'
 import '../styles/Welcome.css'
 
 /**
  * Componente Welcome — Vista de inicio de NotaSync
  * Utiliza arrow functions y destructuring en props.
  */
-const Welcome = ({ onStart }) => {
+const Welcome = ({ onStart, onGoPendientes, pendingCount = 0 }) => {
   return (
     <main id="inicio" className="welcome">
       <div className="welcome__bg" aria-hidden="true" />
@@ -29,11 +30,23 @@ const Welcome = ({ onStart }) => {
             type="button"
             className="welcome__cta"
             onClick={onStart}
-            aria-label="Empezar a crear eventos"
+            aria-label="Empezar a crear o ver todas las notas"
           >
             <span>Empezar a crear</span>
             <span className="welcome__cta-arrow" aria-hidden="true">→</span>
           </button>
+
+          {onGoPendientes && pendingCount > 0 && (
+            <button
+              type="button"
+              className="welcome__cta-alert"
+              onClick={onGoPendientes}
+              aria-label={`Ver ${pendingCount} tareas pendientes`}
+            >
+              <AlertTriangleIcon size={16} />
+              <span>Ver pendientes ({pendingCount})</span>
+            </button>
+          )}
 
           <a href="#funciones" className="welcome__cta-secondary">
             Ver cómo funciona ↓

@@ -80,6 +80,32 @@
   border-radius: 1px;
 }
 
+.navbar__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffb703;
+  color: var(--ink-900);
+  font-size: 0.725rem;
+  font-weight: 700;
+  padding: 0.1rem 0.45rem;
+  border-radius: 9999px;
+  margin-left: 0.4rem;
+  line-height: 1.2;
+  box-shadow: 0 0 8px rgba(255, 183, 3, 0.4);
+}
+
+.navbar__badge--alert {
+  background: #ff4757;
+  color: #fff;
+  animation: badgeAlertPulse 1.8s infinite ease-in-out;
+}
+
+@keyframes badgeAlertPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); box-shadow: 0 0 10px rgba(255, 71, 87, 0.8); }
+}
+
 .navbar__actions {
   display: flex;
   align-items: center;

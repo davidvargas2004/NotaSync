@@ -3,7 +3,13 @@ import { NAV_LINKS } from '../data/navLinks'
 import { CalendarIcon } from './icons'
 import '../styles/Navbar.css'
 
-export default function Navbar({ onConnectGoogle, onNavigateHome }) {
+export default function Navbar({
+  onConnectGoogle,
+  onNavigateHome,
+  onNavigateCrear,
+  onNavigatePendientes,
+  pendingCount = 0
+}) {
   const [isOpen, setIsOpen] = useState(false)
 
   const toggleMenu = () => {
@@ -12,11 +18,18 @@ export default function Navbar({ onConnectGoogle, onNavigateHome }) {
 
   const handleLinkClick = (href, e) => {
     setIsOpen(false)
-    if (href === '#inicio' && onNavigateHome) {
-      onNavigateHome()
-    } else if (href === '#sincronizacion' && onConnectGoogle) {
+    if (href === '#inicio') {
       e.preventDefault()
-      onConnectGoogle()
+      if (onNavigateHome) onNavigateHome()
+    } else if (href === '#crear') {
+      e.preventDefault()
+      if (onNavigateCrear) onNavigateCrear()
+    } else if (href === '#pendientes') {
+      e.preventDefault()
+      if (onNavigatePendientes) onNavigatePendientes()
+    } else if (href === '#sincronizacion') {
+      e.preventDefault()
+      if (onConnectGoogle) onConnectGoogle()
     }
   }
 
@@ -43,7 +56,12 @@ export default function Navbar({ onConnectGoogle, onNavigateHome }) {
             href={link.href}
             onClick={(e) => handleLinkClick(link.href, e)}
           >
-            {link.label}
+            <span>{link.label}</span>
+            {link.href === '#pendientes' && pendingCount > 0 && (
+              <span className={`navbar__badge ${pendingCount > 10 ? 'navbar__badge--alert' : ''}`}>
+                {pendingCount}
+              </span>
+            )}
           </a>
         </li>
       ))}

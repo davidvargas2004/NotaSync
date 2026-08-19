@@ -1,6 +1,7 @@
 export const NAV_LINKS = [
   { label: 'Inicio', href: '#inicio' },
-  { label: 'Funciones', href: '#funciones' },
+  { label: 'Notas y Eventos', href: '#crear' },
+  { label: 'Pendientes', href: '#pendientes', badge: true },
   { label: 'Sincronización', href: '#sincronizacion' },
   { label: 'Documentación', href: '#docs' }
 ]

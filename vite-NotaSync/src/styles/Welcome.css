@@ -139,6 +139,30 @@
   background: rgba(255, 255, 255, 0.05);
 }
 
+.welcome__cta-alert {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 183, 3, 0.12);
+  border: 1px solid #ffb703;
+  color: #ffb703;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.65rem 1.15rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(255, 183, 3, 0.15);
+}
+
+.welcome__cta-alert:hover {
+  background: #ffb703;
+  color: var(--ink-900);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(255, 183, 3, 0.35);
+}
+
 /* ---------- Elemento firma: Sello de sincronización ---------- */
 
 .welcome__stamp {
