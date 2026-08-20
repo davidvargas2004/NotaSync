@@ -1,5 +1,7 @@
 import { useState, useMemo } from 'react'
 import { mockEvents, formatEventDate } from '../data/mockEvents'
+import '../Styles/CreateView.css'
+
 import {
   CalendarIcon,
   ClockIcon,
@@ -10,7 +12,7 @@ import {
   RefreshIcon,
   TagIcon
 } from './icons'
-import './CreateView.css'
+
 
 /**
  * Vista "Empezar a crear" — Renderizado de eventos precargados
@@ -188,7 +190,7 @@ const CreateView = ({
           </div>
 
           <div className="create-view__titles">
-            <h1 className="create-view__title">NOTAS Y EVENTOS PRECARGADOS 👌</h1>
+            <h1 className="create-view__title">NOTAS Y EVENTOS PRECARGADOS 😍</h1>
             <p className="create-view__subtitle">
               Explora y gestiona todos los 37 eventos y notas precargados de NotaSync. Cada elemento incluye fecha, hora, ubicación, categoría, color de acento y estado de sincronización con Google Calendar.
             </p>

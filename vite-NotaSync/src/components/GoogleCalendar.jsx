@@ -20,8 +20,8 @@ export default function GoogleCalendar({ onBack, onStartSync }) {
           </button>
 
           <div className="calendar-page__eyebrow">
-            <span>●</span>
-            <span>Integración Oficial Google</span>
+            <span className="calendar-page__eyebrow-dot" aria-hidden="true">●</span>
+            <span className="calendar-page__eyebrow-text">Integración Oficial Google</span>
           </div>
 
           <h1 className="calendar-page__title">
@@ -29,13 +29,13 @@ export default function GoogleCalendar({ onBack, onStartSync }) {
           </h1>
 
           <p className="calendar-page__pitch">
-            Sincronización instantánea entre tu flujo de pensamiento y tu agenda.
+            Sincronización instantánea entre tu flujo de pensamiento y tu agenda personal.
           </p>
 
           <p className="calendar-page__desc">
             NotaSync se conecta directamente mediante la API de Google Calendar. Cada tarea,
             cita o recordatorio que anotes se transforma automáticamente en un evento organizado,
-            sin fricción ni pasos manuales.
+            sin fricción ni pasos manuales, ademas rapido para que te notifique Google Calendar.
           </p>
 
           {/* Tarjetas de características */}

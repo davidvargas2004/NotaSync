@@ -444,7 +444,7 @@ const ViewPendientes = ({
                       className="pending-card"
                       data-id={id}
                       data-category={categoria}
-                      style={{ borderLeftColor: color || '#ffb703' }}
+                      style={{ borderLeftColor: color || '#ff0000' }}
                     >
                       {/* Cabecera de la tarjeta */}
                       <div className="pending-card__top">
@@ -504,7 +504,7 @@ const ViewPendientes = ({
                           aria-label={`Marcar ${titulo} como completada o enviada a Google Calendar`}
                         >
                           <CalendarIcon size={16} />
-                          <span>Marcar como Enviada a Calendar</span>
+                          <span>Enviada a Calendar</span>
                         </button>
                       </div>
                     </article>
